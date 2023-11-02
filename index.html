@@ -11,8 +11,41 @@
 <body>
   <canvas id="canvas"></canvas>
   <section id="container">
-    <div class="option active" id="default"><span>Default</span></div>
-    <div class="option passive" id="default"><span>Default</span></div>
+    <div class="option passive" id="default" onclick="toggleActive('default')">Default</div>
+    <div class="option passive" id="test1" onclick="toggleActive('test1')">Test 1</div>
+    <div class="option passive" id="test2" onclick="toggleActive('test2')">Test 2</div>
+    <div class="option passive" id="test3" onclick="toggleActive('test3')">Test 3</div>
   </section>
+  <script>
+    const buttons = document.getElementById('container');
+
+    function removeActiveClassAll(){
+      for(let i = 0; i < buttons.children.length; i++) {
+        buttons.children[i].classList.remove('active');
+        console.log(buttons.children[i])
+      }
+    }
+
+    function toggleActive(buttonID){
+      switch(buttonID){
+        case 'default':
+          removeActiveClassAll();
+          buttons.children[0].classList.add('active');
+        break;
+        case 'test1':
+          removeActiveClassAll();
+          buttons.children[1].classList.add('active');
+        break;
+        case 'test2':
+          removeActiveClassAll();
+          buttons.children[2].classList.add('active');
+        break;
+        case 'test3':
+          removeActiveClassAll();
+          buttons.children[3].classList.add('active');
+        break;
+      }
+    }
+  </script>
 </body>
 </html>
