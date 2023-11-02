@@ -1,4 +1,6 @@
-const canvas = document.createElement('canvas');
+import { particleCreate, particles, particlesUpdate } from "./particle.js";
+
+const canvas = document.getElementById("canvas");
 export const ctx = canvas.getContext('2d');
 
 export let WIDTH, HEIGHT;
@@ -10,11 +12,20 @@ function init(){
   WIDTH_HALF = WIDTH / 2;
   HEIGHT_HALF = HEIGHT / 2;
 
+  canvas.width = WIDTH;
+  canvas.height = HEIGHT;
+
+  particleCreate('default', 30, false);
+
+  console.log(particles)
+
   animate();
 }
 
 function animate(){
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+  particlesUpdate();
 
   window.requestAnimationFrame(animate);
 }
