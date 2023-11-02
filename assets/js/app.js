@@ -18,3 +18,5 @@ function animate(){
 
   window.requestAnimationFrame(animate);
 }
+
+document.addEventListener('DOMContentLoaded', init);
