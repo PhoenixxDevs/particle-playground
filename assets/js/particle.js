@@ -92,7 +92,7 @@ export function particleCreate(type, amount, clear){
             y: ((100 * Math.floor(Math.random() * 4) - 2)) / 100
           },
           // color: 'white'
-          color: `hsl(${Math.floor(Math.random() * 80 + 170)}, 70%, 60%)`
+          color: `hsl(${Math.floor(Math.random() * 80 + 230)}, 70%, 70%)`
         };
         //MINIMUM PARTICLE SPEED
         if(config.vel.x < 0.2 && config.vel.x > 0){ config.vel.x = 0.2; }
