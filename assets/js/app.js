@@ -15,9 +15,7 @@ function init(){
   canvas.width = WIDTH;
   canvas.height = HEIGHT;
 
-  particleCreate('default', 30, false);
-
-  console.log(particles)
+  // particleCreate('default', 30, false);
 
   animate();
 }

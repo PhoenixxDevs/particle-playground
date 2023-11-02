@@ -91,9 +91,10 @@ export function particleCreate(type, amount, clear){
             x: ((100 * Math.floor(Math.random() * 4) - 2)) / 100,
             y: ((100 * Math.floor(Math.random() * 4) - 2)) / 100
           },
-          color: 'white'
-          // color: `hsl(${Math.floor(Math.random() * 80 + 170)}, 70%, 60%)`
+          // color: 'white'
+          color: `hsl(${Math.floor(Math.random() * 80 + 170)}, 70%, 60%)`
         };
+        //MINIMUM PARTICLE SPEED
         if(config.vel.x < 0.2 && config.vel.x > 0){ config.vel.x = 0.2; }
         if(config.vel.x > -0.2 && config.vel.x < 0){ config.vel.x = -0.2; }
         if(config.vel.y < 0.2 && config.vel.y > 0){ config.vel.y = 0.2; }
