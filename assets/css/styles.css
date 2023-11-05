@@ -24,9 +24,9 @@ canvas {
   border-radius: 10px;
   user-select: none;
   text-align: center;
-  font-size: 4vh;
+  font-size: calc(1vw + 1vh);
   font-family: Agbalumo;
-  padding-bottom: 7vh;
+  padding-top: calc(1vw - 2vh);
 }
 
 
@@ -71,14 +71,18 @@ canvas {
   background-color: rgb(208, 60, 234);
   color: white;
   text-shadow: 1px 2px 0 rgba(255, 255, 255, 0.7);
-  box-shadow: 3px 5px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 2px 0 rgba(119, 247, 239, 0.6);
   cursor: pointer;
   user-select: none;
+  transition: 0.2s;
 }
 
 #go:hover {
-  text-shadow: 4px 5px 0 rgba(255, 255, 255, 0.7);
   background-color: rgb(179, 60, 234);
-  box-shadow: 2px 2px 0 rgba(119, 247, 239, 0.6);
+  box-shadow: 3px 5px 0 rgba(255, 255, 255, 0.6);
+}
 
+#go:active {
+  text-shadow: 4px 5px 0 rgba(255, 255, 255, 0.7);
+  background-color: rgb(0, 229, 255);
 }

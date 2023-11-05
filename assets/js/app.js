@@ -2,6 +2,8 @@ import { particleCreate, particles, particlesUpdate } from "./particle.js";
 
 const canvas = document.getElementById("canvas");
 export const ctx = canvas.getContext('2d');
+const buttons = document.getElementById('container');
+const startButton = document.getElementById('go');
 
 export let WIDTH, HEIGHT;
 export let WIDTH_HALF, HEIGHT_HALF;
@@ -28,4 +30,4 @@ function animate(){
   window.requestAnimationFrame(animate);
 }
 
-document.addEventListener('DOMContentLoaded', init);
+go.addEventListener('click', init);
