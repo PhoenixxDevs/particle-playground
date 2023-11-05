@@ -86,3 +86,32 @@ canvas {
   text-shadow: 4px 5px 0 rgba(255, 255, 255, 0.7);
   background-color: rgb(0, 229, 255);
 }
+
+#clear {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 14vh;
+  height: 14vh;
+  font-size: 3vh;
+  text-align: center;
+  padding-top: 5vh;
+  border-radius: 50%;
+  background-color: rgb(208, 60, 234);
+  color: white;
+  text-shadow: 1px 2px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 2px 2px 0 rgba(119, 247, 239, 0.6);
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+#clear:hover {
+  background-color: rgb(179, 60, 234);
+  box-shadow: 3px 5px 0 rgba(255, 255, 255, 0.6);
+}
+
+#clear:active {
+  text-shadow: 4px 5px 0 rgba(255, 255, 255, 0.7);
+  background-color: rgb(0, 229, 255);
+}

@@ -1,6 +1,5 @@
-import { ctx, WIDTH, HEIGHT, WIDTH_HALF, HEIGHT_HALF } from './app.js';
+import { ctx, WIDTH, HEIGHT, WIDTH_HALF, HEIGHT_HALF, particles } from './app.js';
 
-export let particles = [];
 let particlesLength = 0;
 
 class Particle {
@@ -11,6 +10,8 @@ class Particle {
     this.vel = config.vel;
     this.color = config.color;
     this.remove = false;
+
+    this.sizeModifier = config.sizeModifier;
   }
   draw() {
     ctx.fillStyle = this.color;
@@ -42,11 +43,18 @@ class Particle {
       this.vel.y *= -1;
     }
   }
+  sizeMod(){
+    this.size += this.sizeModifier;
+  }
 
   // TYPE FUNCTIONALITY
   default(){
     this.move();
     this.contain();
+  }
+  bubble(){
+    this.move();
+    this.sizeMod();
   }
 
 
@@ -55,6 +63,10 @@ class Particle {
     switch(this.type) {
       case 'default':
         this.default();
+      break;
+      
+      case 'bubble':
+        this.bubble();
       break;
     }
 
@@ -65,8 +77,7 @@ class Particle {
 // CREATION FUNCTION
 
 
-export function particleCreate(type, amount, clear){
-  if(clear){particles = [];}
+export function particleCreate(type, amount){
   let config = {};
   let size = 0;
 
@@ -100,6 +111,27 @@ export function particleCreate(type, amount, clear){
         if(config.vel.y < 0.2 && config.vel.y > 0){ config.vel.y = 0.2; }
         if(config.vel.y > -0.2 && config.vel.y < 0){ config.vel.y = -0.2; }
       break;
+
+      case 'bubble':
+        config = {
+          type: 'bubble',
+          size: 2,
+          pos: {x: WIDTH_HALF, y: HEIGHT_HALF},
+          vel: {
+            x: ((100 * Math.floor(Math.random() * 8))) / 100 - 4,
+            y: ((100 * Math.floor(Math.random() * 8))) / 100 - 4
+          },
+          // color: 'white'
+          color: `hsl(${Math.floor(Math.random() * 40 + 170)}, 70%, ${Math.floor(Math.random() * 15) + 70}%)`,
+          sizeModifier: Math.random() * 0.5 + 0.5
+        };
+        //MINIMUM PARTICLE SPEED
+        if(config.vel.x < 0.3 && config.vel.x > 0){ config.vel.x = 0.3; }
+        if(config.vel.x > -0.3 && config.vel.x < 0){ config.vel.x = -0.3; }
+        if(config.vel.y < 0.3 && config.vel.y > 0){ config.vel.y = 0.3; }
+        if(config.vel.y > -0.3 && config.vel.y < 0){ config.vel.y = -0.3; 
+      break;
+      }
     }
 
     particles.push(new Particle(config));

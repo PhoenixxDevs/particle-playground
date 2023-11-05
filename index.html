@@ -12,11 +12,12 @@
   <canvas id="canvas"></canvas>
   <section id="container">
     <div class="option passive" id="default" onclick="toggleActive('default')">Default</div>
-    <div class="option passive" id="test1" onclick="toggleActive('test1')">Test 1</div>
+    <div class="option passive" id="bubble" onclick="toggleActive('bubble')">Bubbles</div>
     <div class="option passive" id="test2" onclick="toggleActive('test2')">Test 2</div>
     <div class="option passive" id="test3" onclick="toggleActive('test3')">Test 3</div>
   </section>
   <div id="go">GO!</div>
+  <div id="clear">CLEAR</div>
   <script>
     const buttons = document.getElementById('container');
 
@@ -33,7 +34,7 @@
           removeActiveClassAll();
           buttons.children[0].classList.add('active');
         break;
-        case 'test1':
+        case 'bubble':
           removeActiveClassAll();
           buttons.children[1].classList.add('active');
         break;
