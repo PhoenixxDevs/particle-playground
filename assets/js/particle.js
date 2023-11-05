@@ -46,6 +46,14 @@ class Particle {
   sizeMod(){
     this.size += this.sizeModifier;
   }
+  removeOffScreen(){
+    if( this.pos.x < -this.size ||
+      this.pos.x > WIDTH + this.size ||
+      this.pos.y < -this.size ||
+      this.pos.y > HEIGHT + this.size){ 
+        this.remove = true;
+    }
+  }
 
   // TYPE FUNCTIONALITY
   default(){
@@ -55,6 +63,7 @@ class Particle {
   bubble(){
     this.move();
     this.sizeMod();
+    this.removeOffScreen();
   }
 
 
@@ -115,14 +124,14 @@ export function particleCreate(type, amount){
       case 'bubble':
         config = {
           type: 'bubble',
-          size: 2,
+          size: Math.floor(Math.random() * 3),
           pos: {x: WIDTH_HALF, y: HEIGHT_HALF},
           vel: {
             x: ((100 * Math.floor(Math.random() * 8))) / 100 - 4,
             y: ((100 * Math.floor(Math.random() * 8))) / 100 - 4
           },
           // color: 'white'
-          color: `hsl(${Math.floor(Math.random() * 40 + 170)}, 70%, ${Math.floor(Math.random() * 15) + 70}%)`,
+          color: `hsla(${Math.floor(Math.random() * 40 + 170)}, 70%, ${Math.floor(Math.random() * 15) + 70}%, 0.65)`,
           sizeModifier: Math.random() * 0.5 + 0.5
         };
         //MINIMUM PARTICLE SPEED

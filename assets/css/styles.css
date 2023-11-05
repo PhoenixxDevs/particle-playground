@@ -27,6 +27,7 @@ canvas {
   font-size: calc(1vw + 1vh);
   font-family: Agbalumo;
   padding-top: calc(1vw - 2vh);
+  transition: 0.2s;
 }
 
 
