@@ -1,53 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Particle Playground 🎮</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Agbalumo">
-  <script src="assets/js/app.js" type="module" defer></script>
-</head>
-<body>
-  <canvas id="canvas"></canvas>
-  <section id="container">
-    <div class="option passive" id="default" onclick="toggleActive('default')">Default</div>
-    <div class="option passive" id="bubble" onclick="toggleActive('bubble')">Bubbles</div>
-    <div class="option passive" id="test2" onclick="toggleActive('test2')">Test 2</div>
-    <div class="option passive" id="test3" onclick="toggleActive('test3')">Test 3</div>
-  </section>
-  <div id="go">GO!</div>
-  <div id="clear">CLEAR</div>
-  <script>
-    const buttons = document.getElementById('container');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Particle Playground 🎮</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Agbalumo"
+    />
+    <script src="assets/js/app.js" type="module" defer></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <section id="container">
+      <div
+        class="option passive"
+        id="default"
+        onclick="toggleActive('default')"
+      >
+        Default
+      </div>
+      <div class="option passive" id="bubble" onclick="toggleActive('bubble')">
+        Bubbles
+      </div>
+      <div class="option passive" id="mouseSpark" onclick="toggleActive('mouseSpark')">
+        Spark
+      </div>
+      <div class="option passive" id="test3" onclick="toggleActive('test3')">
+        Test 3
+      </div>
+    </section>
+    <div id="go">GO!</div>
+    <div id="clear" onclick="removeActiveClassAll()">CLEAR</div>
+    <script>
+      const buttons = document.getElementById("container");
 
-    function removeActiveClassAll(){
-      for(let i = 0; i < buttons.children.length; i++) {
-        buttons.children[i].classList.remove('active');
-        //console.log(buttons.children[i].id)
+      function removeActiveClassAll() {
+        for (let i = 0; i < buttons.children.length; i++) {
+          buttons.children[i].classList.remove("active");
+          //console.log(buttons.children[i].id)
+        }
       }
-    }
 
-    function toggleActive(buttonID){
-      switch(buttonID){
-        case 'default':
-          removeActiveClassAll();
-          buttons.children[0].classList.add('active');
-        break;
-        case 'bubble':
-          removeActiveClassAll();
-          buttons.children[1].classList.add('active');
-        break;
-        case 'test2':
-          removeActiveClassAll();
-          buttons.children[2].classList.add('active');
-        break;
-        case 'test3':
-          removeActiveClassAll();
-          buttons.children[3].classList.add('active');
-        break;
+      function toggleActive(buttonID) {
+        switch (buttonID) {
+          case "default":
+            removeActiveClassAll();
+            buttons.children[0].classList.add("active");
+            break;
+          case "bubble":
+            removeActiveClassAll();
+            buttons.children[1].classList.add("active");
+            break;
+          case "mouseSpark":
+            removeActiveClassAll();
+            buttons.children[2].classList.add("active");
+            break;
+          case "test3":
+            removeActiveClassAll();
+            buttons.children[3].classList.add("active");
+            break;
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
