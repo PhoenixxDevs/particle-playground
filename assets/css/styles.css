@@ -77,6 +77,7 @@ canvas {
 }
 
 #go:hover {
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
   background-color: rgb(179, 60, 234);
   box-shadow: 3px 5px 0 rgba(255, 255, 255, 0.6);
 }
@@ -106,6 +107,7 @@ canvas {
 }
 
 #clear:hover {
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
   background-color: rgb(179, 60, 234);
   box-shadow: 3px 5px 0 rgba(255, 255, 255, 0.6);
 }

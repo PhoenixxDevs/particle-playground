@@ -36,7 +36,7 @@ class Particle {
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
   }
-  gravity(){
+  gravity() {
     this.vel.y += this.weight;
   }
   contain() {
@@ -55,12 +55,21 @@ class Particle {
       this.vel.y *= -1;
     }
   }
-  sizeMod() {
+  sizeMod(max) {
+    if (this.size >= max) {
+      this.size = max;
+      return;
+    }
     this.size += this.sizeModifier;
-    if(this.size < 0.1){this.size = 0.1}
+    if (this.size < 0.1) {
+      this.size = 0.1;
+    }
   }
   alphaMod() {
     this.alpha += this.alphaModifier;
+    if (this.alpha <= 0.02) {
+      this.remove = true;
+    }
   }
   removeOffScreen() {
     if (
@@ -77,6 +86,11 @@ class Particle {
       this.remove = true;
     }
   }
+  removeAtSize(size) {
+    if (this.size >= size) {
+      this.remove = true;
+    }
+  }
 
   // TYPE FUNCTIONALITY
   default() {
@@ -84,16 +98,26 @@ class Particle {
     this.contain();
   }
   bubble() {
+    this.removeAtSize(WIDTH_HALF * 0.5);
+    this.removeOffScreen();
     this.move();
     this.sizeMod();
-    this.removeOffScreen();
   }
   mouseSpark() {
+    this.removeOffScreen();
     this.gravity();
     this.move();
     this.alphaMod();
     this.sizeMod();
     this.color = `hsla(${Math.random() * 13 + 36}, 93%, 65%, ${this.alpha})`;
+  }
+  firework() {
+    this.removeOffScreen();
+    this.gravity();
+    this.move();
+    this.alphaMod();
+    this.sizeMod(6);
+    this.color = `hsla(${Math.random() * 40 + 132}, 93%, 67%, ${this.alpha})`;
   }
 
   update() {
@@ -108,6 +132,10 @@ class Particle {
 
       case "mouseSpark":
         this.mouseSpark();
+        break;
+
+      case "firework":
+        this.firework();
         break;
     }
 
@@ -159,10 +187,14 @@ export function particleCreate(type, amount) {
 
       //BUBBLE DEFINITIONS
       case "bubble":
+        size = Math.floor(Math.random() * 3);
         config = {
           type: "bubble",
-          size: Math.floor(Math.random() * 3),
-          pos: { x: WIDTH_HALF, y: HEIGHT_HALF },
+          size: size,
+          pos: {
+            x: size + Math.floor(Math.random() * WIDTH) - size * 2,
+            y: HEIGHT - size,
+          },
           vel: {
             x: (100 * Math.floor(Math.random() * 8)) / 100 - 4,
             y: (100 * Math.floor(Math.random() * 8)) / 100 - 4,
@@ -198,13 +230,32 @@ export function particleCreate(type, amount) {
           weight: size / 25,
           pos: { x: mouse.pos.x, y: mouse.pos.y },
           vel: {
-            x: Math.random() * 10 - 5,
-            y: Math.random() * 5 - 1,
+            x: Math.random() * 8 - 4,
+            y: Math.random() * 4 - 2,
           },
           color: `hsla(${Math.random() * 17 + 32}, 93%, 67%, ${alpha})`,
           alpha: alpha,
           sizeModifier: Math.random() * -0.003,
           alphaModifier: Math.random() * -0.23,
+        };
+        break;
+
+      //FIREWORKS DEFINITIONS
+      case "firework":
+        size = Math.random() * 2 + 1;
+        config = {
+          type: "firework",
+          size: size,
+          weight: size / 20,
+          pos: { x: mouse.pos.x, y: mouse.pos.y },
+          vel: {
+            x: Math.random() * 4 - 2,
+            y: Math.random() * -3 - 2,
+          },
+          color: `hsla(${Math.random() * 40 + 132}, 93%, 67%, ${alpha})`,
+          alpha: 0.05,
+          sizeModifier: Math.random() * 0.004,
+          alphaModifier: Math.random() * 0.1,
         };
         break;
     }
