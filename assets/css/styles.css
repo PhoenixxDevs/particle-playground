@@ -94,6 +94,7 @@ canvas {
   width: 14vh;
   height: 14vh;
   font-size: 3vh;
+  font-weight: 800;
   text-align: center;
   padding-top: 5vh;
   border-radius: 50%;
@@ -115,4 +116,76 @@ canvas {
 #clear:active {
   text-shadow: 4px 5px 0 rgba(255, 255, 255, 0.7);
   background-color: rgb(0, 229, 255);
+}
+
+#config {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  width: 14vh;
+  height: 14vh;
+  font-size: 3vh;
+  text-align: center;
+  padding-top: 5vh;
+  border-radius: 50%;
+  background-color: rgb(208, 60, 234);
+  color: white;
+  text-shadow: 1px 2px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: 2px 2px 0 rgba(119, 247, 239, 0.6);
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+#config:hover {
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.7);
+  background-color: rgb(179, 60, 234);
+  box-shadow: 3px 5px 0 rgba(255, 255, 255, 0.6);
+}
+
+#config:active {
+  text-shadow: 4px 5px 0 rgba(255, 255, 255, 0.7);
+  background-color: rgb(0, 229, 255);
+}
+
+.config-menu {
+  position: absolute;
+  top: 6vh;
+  margin-top: 1vh;
+  width: 40%;
+  left: -40%;
+  background-color: rgba(80, 80, 80, 0.85);
+  padding: 20px;
+  user-select: none;
+  transition: 1s;
+  border-radius: 7px;
+}
+
+.config-menu ul {
+  list-style: none;
+}
+.config-menu ul li {
+  position: relative;
+  margin-top: 2px;
+}
+
+.config-menu ul li label{
+  color: white;
+  float: left;
+}
+.config-menu ul li input {
+  float: right;
+}
+.config-menu ul li [type="number"]{
+  width: 25%;
+}
+.config-menu ul li [type="range"]{
+  width: 50%;
+}
+.config-menu-active {
+  left: 3px;
+}
+.radio, .checkbox {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

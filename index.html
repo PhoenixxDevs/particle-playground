@@ -33,14 +33,58 @@
     </section>
     <div id="go">GO!</div>
     <div id="clear" onclick="removeActiveClassAll()">CLEAR</div>
+    <div id="config" onclick="toggleActiveClassConfig()">Config</div>
+    <div class="config-menu" id="config-menu">
+      <ul>
+        <li>
+          <label for="particle-num">Amount</label>
+          <input type="number" id="particle-num">
+        </li><br>
+        <li>
+          <label for="particle-size">Size</label>
+          <input type="number" id="particle-size">
+        </li><br>
+        <li class="checkbox">
+          <label for="toggle-gravity">Apply Gravity</label>
+          <input type="checkbox" id="toggle-gravity">
+        </li><br>
+        <li>
+          <label for="particle-weight">Weight</label>
+          <input type="number" id="particle-weight">
+        </li><br>
+        <li class="radio">
+          <label for="random">Position Random</label>
+          <input type="radio" id="particle-pos-random" name="particle-pos" value="random"><br>
+          <label for="middle">Position Middle</label>
+          <input type="radio" id="particle-pos-middle" name="particle-pos" value="middle"><br>
+          <label for="mouse">Position Middle</label>
+          <input type="radio" id="particle-pos-mouse" name="particle-pos" value="mouse"><br>
+        </li>
+        <li class="slider">
+          <label for="particle-hue">Hue</label>
+          <input type="range" name="hue" id="particle-hue" min="0" max="360"><br>
+          <label for="particle-saturation">Saturation</label>
+          <input type="range" name="saturation" id="particle-saturation" min="0" max="100"><br>
+          <label for="particle-lightness">Lightness</label>
+          <input type="range" name="lightness" id="particle-lightness" min="0" max="100"><br>
+          <label for="particle-alpha">Alpha</label>
+          <input type="range" name="alpha" id="particle-alpha" min="0" max="100"><br> <!--REMEMBER TO DIVIDE BY 100!!-->
+        </li>
+      </ul>
+    </div>
     <script>
       const buttons = document.getElementById("container");
+      const config = document.getElementById("config-menu");
 
       function removeActiveClassAll() {
         for (let i = 0; i < buttons.children.length; i++) {
           buttons.children[i].classList.remove("active");
           //console.log(buttons.children[i].id)
         }
+      }
+      function toggleActiveClassConfig(){
+        config.classList.toggle("config-menu-active");
+        //console.log(config.classList)
       }
 
       function toggleActive(buttonID) {
