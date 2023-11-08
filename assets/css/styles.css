@@ -119,6 +119,7 @@ canvas {
 }
 
 #config {
+  z-index: 3;
   position: absolute;
   bottom: 3px;
   left: 3px;
@@ -154,7 +155,7 @@ canvas {
   margin-top: 1vh;
   width: 40%;
   left: -40%;
-  background-color: rgba(80, 80, 80, 0.85);
+  background-color: rgba(0, 0, 0, 0.648);
   padding: 20px;
   user-select: none;
   transition: 1s;
@@ -170,10 +171,16 @@ canvas {
 }
 
 .config-menu ul li label{
-  color: white;
+  color: black;
+  float: left;
+}
+.config-menu ul li p{
+  color: black;
   float: left;
 }
 .config-menu ul li input {
+  background-color: black;
+  transition: 1s;
   float: right;
 }
 .config-menu ul li [type="number"]{
@@ -181,9 +188,27 @@ canvas {
 }
 .config-menu ul li [type="range"]{
   width: 50%;
+ 
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #92d1ff;
+  border-radius: 30px;
 }
 .config-menu-active {
+  background-color: rgba(80, 80, 80, 0.85);
   left: 3px;
+  box-shadow: 1px 2px 4px lightgrey ,2px 5px 15px rgba(255, 255, 255, 0.7), 5px 8px 15px rgb(0, 157, 255);
+  /* text-shadow: 1px 1px 1px lightgreen, -1px -1px -1px lightgreen; */
+}
+.config-menu-active ul li label{
+  color: rgb(200, 242, 255);
+}
+.config-menu-active ul li input {
+  background-color: white;
+}
+.config-menu-active ul li p{
+  color: rgb(200, 242, 255);
+  float: left;
 }
 .radio, .checkbox {
   margin-top: 5px;

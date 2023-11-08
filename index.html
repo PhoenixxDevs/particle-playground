@@ -44,6 +44,10 @@
           <label for="particle-size">Size</label>
           <input type="number" id="particle-size">
         </li><br>
+        <li>
+          <label for="particle-size-mod">Size Modifier</label>
+          <input type="number" id="particle-size-mod">
+        </li><br>
         <li class="checkbox">
           <label for="toggle-gravity">Apply Gravity</label>
           <input type="checkbox" id="toggle-gravity">
@@ -53,12 +57,28 @@
           <input type="number" id="particle-weight">
         </li><br>
         <li class="radio">
-          <label for="random">Position Random</label>
+          <label for="particle-pos-random">Position Random</label>
           <input type="radio" id="particle-pos-random" name="particle-pos" value="random"><br>
-          <label for="middle">Position Middle</label>
+          <label for="particle-pos-middle">Position Middle</label>
           <input type="radio" id="particle-pos-middle" name="particle-pos" value="middle"><br>
-          <label for="mouse">Position Middle</label>
+          <label for="particle-pos-mouse">Position Mouse</label>
           <input type="radio" id="particle-pos-mouse" name="particle-pos" value="mouse"><br>
+        </li>
+        <li>
+          <label for="particle-vel-x">Velocity X</label>
+          <input type="number" id="particle-vel-x"><br>
+        </li>
+        <li>
+          <label for="particle-vel-y">Velocity Y</label>
+          <input type="number" id="particle-vel-y"><br>
+        </li>
+        <li>
+          <label for="particle-vel-x-random">Velocity X Random</label>
+          <input type="number" id="particle-vel-x-random"><br>
+        </li>
+        <li>
+          <label for="particle-vel-y-random">Velocity Y Random</label>
+          <input type="number" id="particle-vel-y-random"><br>
         </li>
         <li class="slider">
           <label for="particle-hue">Hue</label>
@@ -69,6 +89,21 @@
           <input type="range" name="lightness" id="particle-lightness" min="0" max="100"><br>
           <label for="particle-alpha">Alpha</label>
           <input type="range" name="alpha" id="particle-alpha" min="0" max="100"><br> <!--REMEMBER TO DIVIDE BY 100!!-->
+        </li>
+        <li>
+          <label for="particle-alpha-mod">Alpha Modifier</label>
+          <input type="number" id="particle-alpha-mod"><br>
+        </li>
+        <li>
+          <p>Activate on:</p><br>
+          <li class="radio">
+            <label for="activate-go">Go Button</label>
+            <input type="radio" id="activate-go" name="activate" value="go"><br>
+            <label for="middle">Click</label>
+            <input type="radio" id="activate-mousedown" name="activate" value="click"><br>
+            <label for="mouse">Mouse Move</label>
+            <input type="radio" id="activate-mousemove" name="activate" value="move"><br>
+          </li>
         </li>
       </ul>
     </div>
