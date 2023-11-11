@@ -55,6 +55,7 @@ canvas {
   height: 6vh;
   margin-top: 3px;
   float: left;
+  user-select: none;
 }
 
 #go {
